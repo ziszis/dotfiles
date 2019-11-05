@@ -1,0 +1,2 @@
+#!/bin/sh -e
+awk -v f=$1 '{a+=$f}END{print a}'

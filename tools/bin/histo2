@@ -1,0 +1,28 @@
+#!/bin/sh -e
+awk '{
+  cnt[NR] = $1;
+  val[NR] = $2;
+  total += $1;
+  total_sum += $1 * $2;
+}
+END {
+  mean = total_sum / total;
+  perc[0]=0.5; perc[1]=0.9; perc[2]=0.99; perc[3]=0.999;
+  printf("value\t%%\tcum%%\tcum.avg\tcount\n");
+  for (i = 1; i <= length(cnt); ++i) {
+    cum_total += cnt[i];
+    sum += cnt[i] * val[i];
+    sqd += cnt[i] * (mean - val[i]) * (mean - val[i]);
+    printf("%s\t%.3f\t%.3f\t%.3f\t%d\n",
+           val[i], 100.0 * cnt[i] / total,
+           100.0 * cum_total / total,
+           1.0 * sum / cum_total, cnt[i]);
+    for (j = 0; j < length(perc); ++j) {
+      if (cum_total / total >= perc[j]) {
+        printf("---------------------------------------- %.1f %%ile\n", perc[j] * 100.0);
+        perc[j] = 1.1;
+      }
+    }
+  }
+  printf("stddev\t%.3f\n", sqrt(sqd / total));
+}'

@@ -1,0 +1,16 @@
+#!/bin/sh -e
+awk -v x=$1 -v y=$2 '{
+  nr += 1
+  x1 += $x; x2 += $x*$x;
+  y1 += $y; y2 += $y*$y;
+  xy += $x*$y;
+}
+END {
+  sx = sqrt(x2/nr - x1*x1/nr/nr);
+  sy = sqrt(y2/nr - y1*y1/nr/nr);
+  cov = xy/nr - x1/nr*y1/nr;
+  printf("n = %d\n", nr);
+  printf("µ(x) = %.5f\tσ(x) = %.5f\n", x1/nr, sx);
+  printf("µ(y) = %.5f\tσ(y) = %.5f\n", y1/nr, sy);
+  printf("ρ(x, y) = %.5f\n", cov/sx/sy);
+}'
