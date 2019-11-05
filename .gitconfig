@@ -1,0 +1,25 @@
+[user]
+  email = zis.zis@gmail.com
+  name = Ivan Zauharodneu
+[alias]
+  b = branch
+  co = checkout
+  ci = commit
+  d = diff
+  st = status
+  stl = stash list
+  dc = diff --cached
+[color]
+  ui = auto
+[difftool]
+  prompt = false
+[mergetool]
+  keepBackup = false
+[grep]
+  lineNumber = true
+[pager]
+  branch = false
+[tig]
+  line-graphics = ascii
+  main-view-date = relative-compact
+  main-view-author = email-user
