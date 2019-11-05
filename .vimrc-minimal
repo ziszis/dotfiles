@@ -1,0 +1,60 @@
+" Basic setup (no plugins)
+
+set nocp
+syntax enable
+set encoding=utf-8
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set complete-=i
+
+set autoindent
+set backspace=indent,eol,start
+set smarttab
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+set bg=dark
+set wildmenu
+set wildmode=longest:full,list:full
+set autowrite
+set autoread
+set formatoptions+=j " Delete comment character when joining commented lines
+
+" Fix vim :)
+nnoremap Y y$
+map ` :
+
+" Highlight cursor line
+autocmd BufEnter,WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine ctermbg=52 cterm=None
+
+" Hack to always show sign column
+highlight SignColumn ctermbg=0
+au BufEnter,WinEnter * sign define dummy
+au BufEnter,WinEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
+au FocusGained,BufEnter * :silent! !
+
+" Basic C formatting
+setlocal cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4
+
+" Highlight 81st column
+fun! SetupOverLength()
+  if &ft =~ 'java\|javascript\|json'
+    match OverLength /\%101v./
+  elseif &ft =~ 'cpp'
+    match OverLength /\%81v./
+    match OverLength /\%82v./
+  endif
+endfun
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+au! BufNewFile,BufRead * call SetupOverLength()
+
+" Switch between .h/.cc
+nmap gc :e %<.cc<CR>
+nmap gh :e %<.h<CR>
