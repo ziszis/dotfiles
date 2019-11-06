@@ -101,6 +101,7 @@ prompt_end() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  prompt_segment 239 default "%m"
   prompt_git
   prompt_dir
   prompt_status
