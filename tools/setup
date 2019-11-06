@@ -1,0 +1,4 @@
+#!/bin/sh -e
+# Not really a setup script - just some commands copy-paste
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
