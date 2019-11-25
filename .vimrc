@@ -11,6 +11,7 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'mhinz/vim-signify'
 Plugin 'PeterRincker/vim-argumentative'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
@@ -27,6 +28,10 @@ filetype plugin indent on
 
 " Airline
 source ~/tools/vim/airline.vim
+
+" clang-format
+autocmd FileType c,cpp,objc nnoremap ]] Vap:ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap ]] :ClangFormat<CR>
 
 " vim-gitgutter
 set signcolumn=yes
