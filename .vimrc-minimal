@@ -24,6 +24,10 @@ set autowrite
 set autoread
 set formatoptions+=j " Delete comment character when joining commented lines
 
+set backupdir=/tmp//
+set directory=/tmp//
+set undodir=/tmp//
+
 " Fix vim :)
 nnoremap Y y$
 map ` :
