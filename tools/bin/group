@@ -1,2 +1,0 @@
-#!/bin/bash
-awk -v f=$1 -v g=$2 '{a[$f]+=$g}END{for(i in a)print i"\t"a[i]}'

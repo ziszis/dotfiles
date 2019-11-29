@@ -1,2 +1,0 @@
-#!/bin/sh -e
-awk -v f=$1 '{a[$f]+=1}END{for(i in a)print a[i] "\t" i}'
