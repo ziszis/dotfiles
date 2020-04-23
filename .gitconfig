@@ -23,3 +23,5 @@
   line-graphics = ascii
   main-view-date = relative-compact
   main-view-author = email-user
+[pull]
+  rebase = true
