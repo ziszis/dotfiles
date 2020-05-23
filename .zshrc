@@ -65,8 +65,6 @@ export EDITOR="vim -X -u ~/.vimrc-minimal"
 export LESS="-R -M -i"
 export TERM="xterm-256color"
 
-export PYTHONSTARTUP=~/tools/pystartup.py
-
 setopt NO_NOMATCH
 stty stop undef  # Disable C-s/C-q
 
