@@ -7,9 +7,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'PeterRincker/vim-argumentative'
+Plugin 'google/vim-jsonnet'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'mhinz/vim-signify'
-Plugin 'PeterRincker/vim-argumentative'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tpope/vim-commentary'
@@ -20,6 +21,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 
 " Vundle end
 call vundle#end()
