@@ -60,5 +60,18 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 au! BufNewFile,BufRead * call SetupOverLength()
 
 " Switch between .h/.cc
-nmap gc :e %<.cc<CR>
-nmap gh :e %<.h<CR>
+function! SwitchTo(filename, jump_to = '')
+  if (strlen(bufname(a:filename))) > 0
+      execute 'buffer ' . bufname(a:filename)
+  else
+      execute 'edit ' . a:filename
+  endif
+  if (strlen(a:jump_to)) > 0
+      execute 'normal gg'
+      execute '/' . a:jump_to
+  endif
+endfunction
+
+nmap gc :call SwitchTo(expand('%:r').".cc")<CR>
+nmap gh :call SwitchTo(expand('%:r').".h")<CR>
+nmap gb :call SwitchTo(expand('%:h')."/BUILD", expand('%:t'))<CR>
