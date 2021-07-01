@@ -3,3 +3,4 @@ alias vim='vim -X'
 
 ealias b='bazel build'
 ealias bb='bazel build -c opt'
+ealias c='cargo'
