@@ -34,6 +34,9 @@ source ~/tools/vim/airline.vim
 autocmd FileType c,cpp,objc nnoremap ]] Vap:ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap ]] :ClangFormat<CR>
 
+" rust
+let g:rustfmt_autosave = 1
+
 " vim-gitgutter
 set signcolumn=yes
 
