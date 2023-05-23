@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-/bin/sh ~/.oh-my-zsh/tools/upgrade.sh
+/bin/zsh ~/.oh-my-zsh/tools/upgrade.sh
 vim +PluginInstall +PluginUpdate +PluginClean +qall
